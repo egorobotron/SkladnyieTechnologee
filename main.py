@@ -212,7 +212,7 @@ def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
 def main():
-    DEBUG =True
+    DEBUG =False
     db_session.global_init("db/sklad.sqlite")
     app.register_blueprint(goods_api.blueprint)
     # для списка объектов
