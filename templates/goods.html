@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Добавление товара</h1>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    {{ form.csrf_token }}
+    <p>
+        <p><b>Имя товара</b></p>
+        {{ form.name(class="form-control") }}<br>
+        {% for error in form.name.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        <p><b>Описание товара</b></p>
+        {{ form.content(class="form-control") }}<br>
+        {% for error in form.content.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        <p><b>Откуда прибыл товар</b></p>
+        {{ form.place_come(class="form-control") }}<br>
+        {% for error in form.place_come.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        <p><b>Куда отправляется товар</b></p>
+        {{ form.place_going(class="form-control") }}<br>
+        {% for error in form.place_going.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>{{ form.is_fragile() }} Хрупкий</p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary", value="Добавить") }}</p>
+    {{message}}
+</form>
+{% endblock %}
